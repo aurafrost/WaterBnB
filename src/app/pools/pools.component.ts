@@ -10,11 +10,14 @@ import { Listing } from '../model/Listing';
   styleUrls: ['./pools.component.scss']
 })
 export class PoolsComponent implements OnInit {
-  listing:Observable<Listing>;
+  id:number;
+  listings:Observable<Listing[]>;
   constructor(private service:RestService,
     private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.listing=this.service.getListingById(this.route.snapshot.params.id);
+    // this.listing=this.service.getListingById(this.route.snapshot.params.id);
+    this.id=this.route.snapshot.params.id;
+    this.listings=this.service.getListingById(this.id);
   }
 }

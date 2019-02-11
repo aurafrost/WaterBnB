@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Listing } from '../model/Listing';
 import { RestService } from '../services/rest.service';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-
-const httpOptions={headers: new HttpHeaders(
-  {
-    'Content-Type':'application/json'
-  }
-)};
 
 @Component({
   selector: 'search',

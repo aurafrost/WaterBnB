@@ -23,9 +23,10 @@ export class RestService {
     return this.http.get<Listing[]>(this.url);
   }
 
+  // Failing for some reason. Need to fix.
   getListingById(id){
     console.log("Rest Service: "+id);
-    return this.http.get<Listing>(this.url + "/find/" + id);
+    return this.http.get<Listing[]>(this.url +"/"+ id);
   }
 
   addListing(Listing) {
