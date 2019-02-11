@@ -2,7 +2,33 @@
 <div class="container-fluid">
   <p>Find places to swim and sleep on water bnb!</p>
   <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="location" aria-label="Search">
-    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    <input #searchBox class="form-control mr-sm-2" placeholder="location" aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="search(searchBox.value)">Search</button>
   </form>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Address</th>
+        <th scope="col">Pool Size</th>
+        <th scope="col">Cost per Night</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody style="height: 80%; overflow-y: auto;">
+      <tr *ngFor="let pool of pools | async">
+        <td>{{pool.address}}</td>
+        <td>{{pool.poolSize}}</td>
+        <td>{{pool.cost}}</td>
+        <td><a routerLink="/pools/{{pool.listingId}}"><button class="btn btn-outline-primary">{{pool.details}} - See more</button></a></td>
+      </tr>
+      <!-- Placeholder for testing -->
+      <!-- <tr>
+        <td>address1</td>
+        <td>large</td>
+        <td>12.34</td>
+        <td><a routerLink="/pools/1"><button class="btn btn-outline-primary">4.0/5.0 - See more</button></a></td>
+      </tr> -->
+    </tbody>
+  </table>
 </div>

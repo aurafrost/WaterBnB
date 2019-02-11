@@ -11,6 +11,8 @@ import { ReviewComponent } from './review/review.component';
 import { SigninComponent } from './signin/signin.component';
 import { HostComponent } from './host/host.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

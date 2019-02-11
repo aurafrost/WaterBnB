@@ -9,12 +9,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  {path: '/', component: SearchComponent},
-  {path: '/pools/:id', component: PoolsComponent},
-  {path: '/review', component: ReviewComponent},
-  {path: '/guest/signin', component: SigninComponent},
-  {path: '/host', component: HostComponent},
-  {path: '/dashboard', component: DashboardComponent},
+  {path: '', component: SearchComponent},
+  {path: 'pools/:id', component: PoolsComponent},
+  {path: 'review', component: ReviewComponent},
+  {path: 'guest/signin', component: SigninComponent},
+  {path: 'host', component: HostComponent},
+  {path: 'dashboard', component: DashboardComponent},
   {path: '**', component: AppComponent},
 ];
 
