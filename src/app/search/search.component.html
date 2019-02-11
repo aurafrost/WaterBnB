@@ -19,7 +19,7 @@
       <tr *ngFor="let pool of pools | async">
         <td>{{pool.address}}</td>
         <td>{{pool.poolSize}}</td>
-        <td>{{pool.cost}}</td>
+        <td>${{pool.cost}}</td>
         <td><a routerLink="/pools/{{pool.listingId}}"><button class="btn btn-outline-primary">{{pool.details}} - See more</button></a></td>
       </tr>
     </tbody>
