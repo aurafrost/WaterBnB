@@ -11,7 +11,7 @@ import { SearchComponent } from './search/search.component';
 const routes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'pools/:id', component: PoolsComponent},
-  {path: 'review', component: ReviewComponent},
+  {path: 'review/:id', component: ReviewComponent},
   {path: 'guest/signin', component: SigninComponent},
   {path: 'host', component: HostComponent},
   {path: 'dashboard', component: DashboardComponent},

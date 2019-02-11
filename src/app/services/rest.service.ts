@@ -23,17 +23,17 @@ export class RestService {
     return this.http.get<Listing[]>(this.url);
   }
 
+  getListingById(id){
+    console.log("Rest Service: "+id);
+    return this.http.get<Listing>(this.url + "/find/" + id);
+  }
+
   addListing(Listing) {
     return this.http.post<Listing>(this.url + '/add',Listing);
   }
 
   updateListing(Listing){
     return this.http.put<Listing>(this.url + '/update', Listing);
-  }
-
-  deleteNote(id){
-    alert('Deleting '+id);
-    return this.http.delete(this.url + '/delete/'+ id);
   }
 
   /* GET heroes whose name contains search term */

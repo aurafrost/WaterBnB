@@ -1,23 +1,23 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>address</p>
-            <p>description here</p>
+            <p>{{listing.address}}</p>
+            <p>{{listing.description}}</p>
         </div>
         <div class="col">
             Email: <br>
             Name: <br>
-            Pool Size: <br>
-            Cost: <br>
+            Pool Size: {{listing.poolSize}}<br>
+            Cost: {{listing.cost}}<br>
         </div>
     </div>
     <br><br>
     <div class="row">
         <div class="col">
-            <p>Reviews (scores):</p>
+            <p>Reviews {{listing.details}}:</p>
         </div>
         <div class="col" style="text-align: right;">
-            <button class="btn btn-outline-primary" routerLink="/review">Leave a review</button>
+            <button class="btn btn-outline-primary" routerLink="/review/{{listing.listingId}}">Leave a review</button>
         </div>
     </div>
     <div style="border: 1px solid black">
