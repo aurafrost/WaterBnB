@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/User';
+import { RestService } from '../services/rest.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,13 +9,13 @@ import { User } from '../model/User';
 })
 export class SigninComponent implements OnInit {
   user:User;
-  constructor() { }
+  fName:string;
+  lName:string;
+  email:string;
+  password:string;
+  constructor(private service:RestService) { }
 
   ngOnInit() {
   }
 
-  register(event){
-    this.user.fName=event.target.fName;
-    console.log(event.target.fName)
-  }
 }

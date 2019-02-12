@@ -1,4 +1,4 @@
-<div class="container" *ngFor="let listing of listings | async">
+<div class="container">
     <div class="row">
         <div class="col">
             <p>{{listing.address}}</p>
@@ -20,7 +20,15 @@
             <button class="btn btn-outline-primary" routerLink="/review/{{listing.listingId}}">Leave a review</button>
         </div>
     </div>
-    <div style="border: 1px solid black">
-        list of reviews here
-    </div>
+    <table class="table" style="border: 1px solid black">
+        <tbody style="height: 80%; overflow-y: auto;">
+            <tr *ngFor="let review of reviews|async">
+                <td>
+                    {{review.name}}:<br>
+                    Rating: {{review.rating}}/5<br><br>
+                    {{review.review}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

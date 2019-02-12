@@ -4,10 +4,12 @@ export class User{
     lName:any;
     email:any;
     password:any;
-    constructor(fName?,lName?,email?,password?){
+    type:any;
+    constructor(fName?,lName?,email?,password?,type?){
         this.fName=fName;
         this.lName=lName;
         this.email=email;
         this.password=password;
+        this.type=type;
     }
 }

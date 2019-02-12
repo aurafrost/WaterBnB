@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Listing } from '../model/Listing';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../model/User';
+import { Review } from '../model/Review';
 
 const httpOptions={headers: new HttpHeaders(
   {
@@ -17,28 +19,40 @@ export class RestService {
 
   constructor(private http: HttpClient) { }
 
-  private url="http://localhost:8081/WaterBnB/waterbnb"
+  private url="http://localhost:8090"
 
   public getListings(){
-    return this.http.get<Listing[]>(this.url);
+    return this.http.get<Listing[]>(this.url+"/listing");
   }
 
   // Failing for some reason. Need to fix.
   getListingById(id){
     console.log("Rest Service: "+id);
-    return this.http.get<Listing[]>(this.url +"/"+ id);
+    return this.http.get<Listing>(this.url +"/listing/"+ id);
   }
 
   addListing(Listing) {
-    return this.http.post<Listing>(this.url + '/add',Listing);
+    return this.http.post<Listing>(this.url+"/listing",Listing);
   }
 
   updateListing(Listing){
-    return this.http.put<Listing>(this.url + '/update', Listing);
+    return this.http.put<Listing>(this.url+"/listing", Listing);
   }
 
-  /* GET heroes whose name contains search term */
+  // failing at the moment
   searchListings(string){
-    return this.http.get<Listing[]>(this.url+"/?name="+string);
+    return this.http.get<Listing[]>(this.url+"/listing/?name="+string);
+  }
+
+  registerUser(user){
+    return this.http.post(this.url+"/user/",user);
+  }
+
+  getUser(email){
+    return this.http.get<User>(this.url+"/user/"+email);
+  }
+
+  public getReviews(){
+    return this.http.get<Review[]>(this.url+"/review");
   }
 }
