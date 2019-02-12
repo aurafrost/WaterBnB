@@ -12,7 +12,7 @@ import { SigninComponent } from './signin/signin.component';
 import { HostComponent } from './host/host.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from "@angular/common/http";
-
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { HttpClientModule } from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

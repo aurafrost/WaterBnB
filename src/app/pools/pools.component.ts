@@ -25,10 +25,10 @@ export class PoolsComponent implements OnInit {
       this.listing=data;
       console.log("listing fetched")
       //get user from listing
-      this.service.getUserById(this.listing.userId).subscribe(data=>{
-        console.log("From listing - user id: "+this.listing.userId)
-        this.user=data;
-      })
+      // this.service.getUserById(this.listing.userId).subscribe(data=>{
+      //   console.log("From listing - user id: "+this.listing.userId)
+      //   this.user=data;
+      // });
     });
     this.reviews=this.service.getReviews();
   }

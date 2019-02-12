@@ -16,10 +16,18 @@ const httpOptions={headers: new HttpHeaders(
   providedIn: 'root'
 })
 export class RestService {
+  private signedin;
+  private url="http://localhost:8090"
 
   constructor(private http: HttpClient) { }
 
-  private url="http://localhost:8090"
+  getCurrentUser(){
+    return this.signedin;
+  }
+
+  setCurrentUser(user){
+    this.signedin=user;
+  }
 
   //listing methods
   public getListings(){
@@ -55,7 +63,8 @@ export class RestService {
     return this.http.get<User>(this.url+"/user/"+id);
   }
 
-  getUser(email){
+  getUserByEmail(email){
+    console.log("REST sending email: "+email)
     return this.http.get<User>(this.url+"/user/email/"+email);
   }
 

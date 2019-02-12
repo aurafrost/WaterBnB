@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Review } from '../model/Review';
 
 @Component({
   selector: 'review',

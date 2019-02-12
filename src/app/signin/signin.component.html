@@ -2,45 +2,23 @@
   <div class="row">
     <div class="col" style="border: 1px solid black;">
       <h3>Register</h3>
-      <form action="http://localhost:8090/WaterBnB/waterbnb/user/register" method="POST">
-        <div class="form-group">
-          <label for="fName">First Name</label>
-          <input type="text" class="form-control" id="fName">
-        </div>
-        <div class="form-group">
-          <label for="lName">Last Name</label>
-          <input type="text" class="form-control" id="lName">
-        </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <div class="form-group">
-          <select class="form-control" id="type">
-            <option>Guest</option>
-            <option>Host</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Register</button>
-      </form>
+      First Name: <input type="text" id="fName" [(ngModel)]="fName"><br>
+      Last Name: <input type="text" id="lName" [(ngModel)]="lName"><br>
+      Email address: <input type="email" id="email" [(ngModel)]="email"><br>
+      Password: <input type="password" id="password" [(ngModel)]="password"><br>
+      <select id="type" [(ngModel)]="type">
+        <option>Guest</option>
+        <option>Host</option>
+      </select>
+      <br>
+      <button (click)="register(type,fName,lName,email,password)" class="btn btn-primary">Register</button>
     </div>
     <div class="col" style="border: 1px solid black;">
       <h3>Login</h3>
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
+      Email address: <input type="email" id="signinemail" [(ngModel)]="signinemail"><br>
+      Password: <input type="password" id="signinpassword" [(ngModel)]="signinpassword"><br>
+      <button (click)="login(signinemail,signinpassword)" class="btn btn-primary">Login</button><br>
+      {{errormsg}}
     </div>
   </div>
 </div>

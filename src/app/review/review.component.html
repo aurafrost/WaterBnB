@@ -2,16 +2,23 @@
   <div class="row">
     <div class="col">
       <p>Review of {{listing.address}}</p>
-      <textarea rows="10" cols="50" style="border: 1px solid black;"></textarea>
-      <br>
-      Rating: <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <button class="btn btn-outline-primary">Submit Review</button>
+      <form action="http://localhost:8090/WaterBnB/waterbnb/review" method="POST">
+        <div class="form-group">
+          <label for="review">Review</label>
+          <textarea class="form-control" id="review" rows="10" cols="50" style="border: 1px solid black;" placeholder="review here"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <select class="form-control" id="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Submit Review</button>
+      </form>
     </div>
     <div class="col"></div>
   </div>
