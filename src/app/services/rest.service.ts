@@ -41,7 +41,7 @@ export class RestService {
   }
 
   addListing(listing) {
-    return this.http.post(this.url+"/listing",listing);
+    return this.http.post(this.url+"/listing/",listing);
   }
 
   updateListing(listing){

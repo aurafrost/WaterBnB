@@ -31,12 +31,14 @@ export class DashboardComponent implements OnInit {
   addListing(address,description,cost,poolSize){
     this.listing.address=address;
     this.listing.cost=cost;
-    this.listing.details="4";
+    this.listing.details="4.0";
     this.listing.email=this.user.email;
     this.listing.name=this.user.fName+" "+this.user.lName;
     this.listing.poolSize=poolSize;
     this.listing.description=description;
+    this.listing.userId=this.user.userId;
     this.service.addListing(this.listing);
     console.log("Listing added.");
+    this.router.navigate(['host']);
   }
 }
