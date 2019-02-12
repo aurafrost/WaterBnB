@@ -21,6 +21,7 @@ export class RestService {
 
   private url="http://localhost:8090"
 
+  //listing methods
   public getListings(){
     return this.http.get<Listing[]>(this.url+"/listing");
   }
@@ -44,14 +45,21 @@ export class RestService {
     return this.http.get<Listing[]>(this.url+"/listing/?name="+string);
   }
 
+
+  //user methods
   registerUser(user){
     return this.http.post(this.url+"/user/",user);
   }
 
-  getUser(email){
-    return this.http.get<User>(this.url+"/user/"+email);
+  getUserById(id){
+    return this.http.get<User>(this.url+"/user/"+id);
   }
 
+  getUser(email){
+    return this.http.get<User>(this.url+"/user/email/"+email);
+  }
+
+  //review methods
   public getReviews(){
     return this.http.get<Review[]>(this.url+"/review");
   }

@@ -1,3 +1,5 @@
+import { User } from './User';
+
 export class Listing{
     listingId:any;
     email:any;
@@ -6,7 +8,8 @@ export class Listing{
     poolSize:any;
     cost:any;
     details:any;
-    constructor(listingId?,email?,name?,address?,poolSize?,cost?,details?){
+    userId:any;
+    constructor(listingId?,email?,name?,address?,poolSize?,cost?,details?,userId?){
         this.listingId=listingId;
         this.email=email;
         this.name=name;
@@ -14,5 +17,6 @@ export class Listing{
         this.poolSize=poolSize;
         this.cost=cost;
         this.details=details;
+        this.userId=userId;
     }
 }

@@ -5,7 +5,7 @@
             <p>{{listing.description}}</p>
         </div>
         <div class="col">
-            Email: <br>
+            Email: {{listing.userId}}<br>
             Name: <br>
             Pool Size: {{listing.poolSize}}<br>
             Cost: {{listing.cost}}<br>
@@ -17,7 +17,7 @@
             <p>Reviews {{listing.details}}:</p>
         </div>
         <div class="col" style="text-align: right;">
-            <button class="btn btn-outline-primary" routerLink="/review/{{listing.listingId}}">Leave a review</button>
+            <button class="btn btn-outline-primary" (click)="checkUser()">Leave a review</button>
         </div>
     </div>
     <table class="table" style="border: 1px solid black">
