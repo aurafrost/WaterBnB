@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   details:any;
   description:string;
   poolSize:string;
+  listings:any;
   constructor(private service:RestService,
     private route:ActivatedRoute,
     private router:Router) { }
@@ -26,6 +27,9 @@ export class DashboardComponent implements OnInit {
     if(this.user==null){
       this.router.navigate(['/']);
     }
+    this.service.getListingsByUser(this.user).subscribe(data=>{
+      this.listings=data;
+    })
   }
 
   addListing(address,description,cost,poolSize){

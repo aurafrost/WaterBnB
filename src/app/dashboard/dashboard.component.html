@@ -10,11 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pool of pools | async">
-        <td>{{pool.address}}</td>
-        <td>{{pool.size}}</td>
-        <td>{{pool.cost}}</td>
-        <td><a routerLink="/pools/{{pool.id}}"><button class="btn btn-outline-primary">{{pool.details}} - See more</button></a></td>
+      <tr *ngFor="let listing of listings">
+        <td>{{listing.address}}</td>
+        <td>{{listing.size}}</td>
+        <td>{{listing.cost}}</td>
+        <td><a routerLink="/pools/{{listing.id}}"><button class="btn btn-outline-primary">{{listing.details}} - See more</button></a></td>
       </tr>
     </tbody>
   </table>

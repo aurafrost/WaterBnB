@@ -21,11 +21,11 @@ export class RestService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentUser(){
+  public getCurrentUser(){
     return this.signedin;
   }
 
-  setCurrentUser(user){
+  public setCurrentUser(user){
     this.signedin=user;
   }
 
@@ -35,35 +35,39 @@ export class RestService {
   }
 
   // Failing for some reason. Need to fix.
-  getListingById(id){
+  public getListingById(id){
     console.log("Rest Service: "+id);
     return this.http.get<Listing>(this.url +"/listing/"+ id);
   }
 
-  addListing(listing) {
+  public getListingsByUser(user){
+    return this.http.get<Listing[]>(this.url +"/listing", user);
+  }
+
+  public addListing(listing) {
     return this.http.post(this.url+"/listing/",listing);
   }
 
-  updateListing(listing){
+  public updateListing(listing){
     return this.http.put(this.url+"/listing", listing);
   }
 
   // failing at the moment
-  searchListings(string){
+  public searchListings(string){
     return this.http.get<Listing[]>(this.url+"/listing/?name="+string);
   }
 
 
   //user methods
-  registerUser(user){
+  public registerUser(user){
     return this.http.post(this.url+"/user/",user);
   }
 
-  getUserById(id){
+  public getUserById(id){
     return this.http.get<User>(this.url+"/user/"+id);
   }
 
-  getUserByEmail(email){
+  public getUserByEmail(email){
     console.log("REST sending email: "+email)
     return this.http.get<User>(this.url+"/user/email/"+email);
   }
