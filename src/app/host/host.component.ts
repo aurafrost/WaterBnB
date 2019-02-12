@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
+import { User } from '../model/User';
 
 @Component({
-  selector: 'app-host',
+  selector: 'host',
   templateUrl: './host.component.html',
   styleUrls: ['./host.component.scss']
 })
 export class HostComponent implements OnInit {
-
-  constructor() { }
+  user:User;
+  constructor(private service:RestService) { }
 
   ngOnInit() {
+    this.user=this.service.getCurrentUser();
   }
+
 
 }

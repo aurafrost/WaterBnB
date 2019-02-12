@@ -9,7 +9,8 @@ export class Listing{
     cost:any;
     details:any;
     userId:any;
-    constructor(listingId?,email?,name?,address?,poolSize?,cost?,details?,userId?){
+    description:any;
+    constructor(listingId?,email?,name?,address?,poolSize?,cost?,details?,userId?,description?){
         this.listingId=listingId;
         this.email=email;
         this.name=name;
@@ -18,5 +19,6 @@ export class Listing{
         this.cost=cost;
         this.details=details;
         this.userId=userId;
+        this.description=description;
     }
 }

@@ -40,12 +40,12 @@ export class RestService {
     return this.http.get<Listing>(this.url +"/listing/"+ id);
   }
 
-  addListing(Listing) {
-    return this.http.post<Listing>(this.url+"/listing",Listing);
+  addListing(listing) {
+    return this.http.post(this.url+"/listing",listing);
   }
 
-  updateListing(Listing){
-    return this.http.put<Listing>(this.url+"/listing", Listing);
+  updateListing(listing){
+    return this.http.put(this.url+"/listing", listing);
   }
 
   // failing at the moment
