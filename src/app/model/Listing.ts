@@ -7,18 +7,18 @@ export class Listing{
     address:any;
     poolSize:any;
     cost:any;
-    details:any;
-    userId:any;
+    user:any;
     description:any;
-    constructor(listingId?,email?,name?,address?,poolSize?,cost?,details?,userId?,description?){
+    review:any;
+    constructor(listingId?,email?,name?,address?,poolSize?,cost?,user?,description?,review?){
         this.listingId=listingId;
         this.email=email;
         this.name=name;
         this.address=address;
         this.poolSize=poolSize;
         this.cost=cost;
-        this.details=details;
-        this.userId=userId;
+        this.user=user;
         this.description=description;
+        this.review=review;
     }
 }

@@ -13,7 +13,7 @@ export class EditComponent implements OnInit {
   id:number;
   listing:any;
   user:any;
-  reviews:Observable<Review[]>;
+  reviews:any;
 
   //for edit
   description:any;
@@ -32,14 +32,17 @@ export class EditComponent implements OnInit {
       this.poolSize=this.listing.poolSize;
       this.cost=this.listing.cost;
     });
-    this.reviews=this.service.getReviews();
+    // this.reviews=this.service.getReviewsByListing();
+    this.service.getReviewsByListing(this.id).subscribe(data=>{
+      this.reviews=data;
+    });
   }
 
   edit(description,poolSize,cost){
     this.listing.description=description;
     this.listing.poolSize=poolSize;
     this.listing.cost=cost;
-    this.service.updateListing(this.listing);
+    this.service.updateListing(this.id,this.listing).subscribe(data=>{});
     this.router.navigate(["host"]);
   }
 }

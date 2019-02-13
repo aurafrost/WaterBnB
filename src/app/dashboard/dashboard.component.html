@@ -1,6 +1,6 @@
 <div class="container">
   <p>Current Listings</p>
-  <table class="table">
+  <table class="table" style="height: 50%; overflow: auto;">
     <thead>
       <tr>
         <th scope="col">Address</th>
@@ -13,22 +13,39 @@
       <tr *ngFor="let listing of listings|async">
         <td>{{listing.address}}</td>
         <td>{{listing.poolSize}}</td>
-        <td>{{listing.cost}}</td>
+        <td>${{listing.cost}}</td>
         <td><a routerLink="/edit/{{listing.listingId}}"><button class="btn btn-outline-primary">Edit</button></a></td>
       </tr>
     </tbody>
   </table>
 
-  <div>
-    <h3>Register</h3>
-    Address: <input type="text" id="address" [(ngModel)]="address"><br>
-    Description: <textarea rows="5" id="description" [(ngModel)]="description"></textarea><br>
-    Cost per Night: $<input type="text" id="cost" [(ngModel)]="cost"><br>
-    Pool Size: <select id="poolSize" [(ngModel)]="poolSize"><br>
-      <option>Small</option>
-      <option>Medium</option>
-      <option>Large</option>
-    </select>
-    <button (click)="addListing(address,description,cost,poolSize)" class="btn btn-primary">Add Listing</button>
+  <div class="container" style="border: 1px solid black; text-align: center">
+    <h3>New Listing</h3>
+    <form action="host" method="POST">
+      <table>
+        <tr>
+          <td>Address:</td>
+          <td><input type="text" name="address" [(ngModel)]="address"></td>
+        </tr>
+        <tr>
+          <td> Description:</td>
+          <td><textarea rows="5" name="description" [(ngModel)]="description"></textarea></td>
+        </tr>
+        <tr>
+          <td>Cost per Night:</td>
+          <td>$<input type="text" name="cost" [(ngModel)]="cost"></td>
+        </tr>
+        <tr>
+          <td>Pool Size:</td>
+          <td><select name="poolSize" [(ngModel)]="poolSize">
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select></td>
+        </tr>
+        <button type="submit" (click)="addListing(address,description,cost,poolSize)" class="btn btn-primary">Add
+          Listing</button>
+      </table>
+    </form>
   </div>
 </div>

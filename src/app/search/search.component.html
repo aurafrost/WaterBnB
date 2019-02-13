@@ -3,6 +3,7 @@
   <p>Find places to swim and sleep on water bnb!</p>
     <input #searchBox class="form-control mr-sm-2" placeholder="location" aria-label="Search">
     <button class="btn btn-outline-primary my-2 my-sm-0" (click)="search(searchBox.value)">Search</button>
+    {{msg}}
   <br>
   <table class="table">
     <thead>
@@ -13,13 +14,14 @@
         <th scope="col">Details</th>
       </tr>
     </thead>
-    <tbody style="height: 80%; overflow-y: auto;">
+    <tbody>
       <tr *ngFor="let pool of pools | async">
         <td>{{pool.address}}</td>
         <td>{{pool.poolSize}}</td>
         <td>${{pool.cost}}</td>
         <td><a routerLink="/pools/{{pool.listingId}}"><button class="btn btn-outline-primary">See more</button></a></td>
       </tr>
+      {{results}}
     </tbody>
   </table>
 </div>

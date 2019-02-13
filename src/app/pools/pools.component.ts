@@ -11,37 +11,38 @@ import { Review } from '../model/Review';
   styleUrls: ['./pools.component.scss']
 })
 export class PoolsComponent implements OnInit {
-  id:number;
-  listing:any;
-  user:any;
-  reviews:Observable<Review[]>;
-  constructor(private service:RestService,
-    private route:ActivatedRoute,
-    private router:Router) { }
+  id: number;
+  listing: any;
+  listingOwner: any;
+  user: any;
+  reviews: any;
+  constructor(private service: RestService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
-    this.service.getCurrentUser().subscribe(data=>{
-      this.user=data;
+    this.user = this.service.getCurrentUser();
+    this.id = this.route.snapshot.params.id;
+
+    this.service.getListingById(this.id).subscribe(data => {
+      this.listing = data;
+      //not getting user from listing
+      // console.log("ngoninit: " + this.listing.user_id);
+      // this.listingOwner = this.service.getUserById(data.user);
     })
-    this.id=this.route.snapshot.params.id;
-    this.service.getListingById(this.id).subscribe(data=>{
-      this.listing=data;
-      console.log("listing fetched")
-      //get user from listing
-      // this.service.getUserById(this.listing.userId).subscribe(data=>{
-      //   console.log("From listing - user id: "+this.listing.userId)
-      //   this.user=data;
-      // });
+    // this.reviews = this.service.getReviewsByListing(this.id);
+    this.service.getReviewsByListing(this.id).subscribe(data=>{
+      this.reviews=data;
     });
-    this.reviews=this.service.getReviews();
   }
 
-  checkUser(){
-    //check
-    if(this.user==null){
+  checkUser() {
+    //check and redirect accordingly
+    if(this.service.getCurrentUser()==null){
       this.router.navigate(["/guest/signin"]);
     }
-    //redirect accordingly
-    this.router.navigate(["/review/"+this.listing.listingId]);
+    else {
+      this.router.navigate(["/review/" + this.listing.listingId]);
+    }
   }
 }

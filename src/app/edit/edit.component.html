@@ -1,36 +1,36 @@
 <div class="container">
-  <div class="row">
-      <div class="col">
-          <p>Address: {{listing.address}}</p>
-          <p>Description: <textarea rows="10" cols="50" [(ngModel)]="description"></textarea></p>
-      </div>
-      <div class="col">
-          Email: {{user.email}}<br>
-          Name: {{user.fName}}<br>
-          Pool Size: <select [(ngModel)]="poolSize">
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-          </select><br>
-          Cost: <input type="number" [(ngModel)]="cost"><br>
-      </div>
-  </div>
-  <button (click)="edit(description,poolSize,cost)">Save Changes</button>
-  <br><br>
-  <div class="row">
-      <div class="col">
-          <p>Reviews:</p>
-      </div>
-  </div>
-  <table class="table" style="border: 1px solid black">
-      <tbody style="height: 80%; overflow-y: auto;">
-          <tr *ngFor="let review of reviews|async">
-              <td>
-                  {{review.name}}:<br>
-                  Rating: {{review.rating}}/5<br><br>
-                  {{review.review}}
-              </td>
-          </tr>
-      </tbody>
-  </table>
+    <div class="row">
+        <div class="col">
+            <p>Address: {{listing.address}}</p>
+            <p>Description: <textarea rows="10" cols="50" [(ngModel)]="description"></textarea></p>
+        </div>
+        <div class="col">
+            Email: {{user.email}}<br>
+            Name: {{user.fName}}<br>
+            Pool Size: <select [(ngModel)]="poolSize">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+            </select><br>
+            Cost: <input type="number" [(ngModel)]="cost"><br>
+        </div>
+    </div>
+    <button type="submit" (click)="edit(description,poolSize,cost)">Save Changes</button>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <p>Reviews:</p>
+        </div>
+    </div>
+    <table class="table" style="border: 1px solid black">
+        <tbody style="height: 80%; overflow-y: auto;">
+            <tr *ngFor="let review of reviews">
+                <td>
+                    {{review.name}}:<br>
+                    Rating: {{review.rating}}/5<br><br>
+                    {{review.review}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
