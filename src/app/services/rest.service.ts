@@ -17,9 +17,9 @@ const httpOptions={headers: new HttpHeaders(
 })
 export class RestService {
   signedin:any;
-  private url="http://localhost:8090";
+  // private url="http://localhost:8090";
   //url for heroku
-  // private url="https://waterbnbserver.herokuapp.com";
+  private url="https://waterbnbserver.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
