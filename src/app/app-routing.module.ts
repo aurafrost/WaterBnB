@@ -7,9 +7,11 @@ import { SigninComponent } from './signin/signin.component';
 import { HostComponent } from './host/host.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {path: '', component: SearchComponent},
+  {path: 'edit/:id', component: EditComponent},
   {path: 'pools/:id', component: PoolsComponent},
   {path: 'review/:id', component: ReviewComponent},
   {path: 'guest/signin', component: SigninComponent},

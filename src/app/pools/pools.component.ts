@@ -20,6 +20,9 @@ export class PoolsComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
+    this.service.getCurrentUser().subscribe(data=>{
+      this.user=data;
+    })
     this.id=this.route.snapshot.params.id;
     this.service.getListingById(this.id).subscribe(data=>{
       this.listing=data;
@@ -35,7 +38,9 @@ export class PoolsComponent implements OnInit {
 
   checkUser(){
     //check
-
+    if(this.user==null){
+      this.router.navigate(["/guest/signin"]);
+    }
     //redirect accordingly
     this.router.navigate(["/review/"+this.listing.listingId]);
   }

@@ -17,7 +17,9 @@ const httpOptions={headers: new HttpHeaders(
 })
 export class RestService {
   private signedin;
-  private url="http://localhost:8090"
+  // private url="http://localhost:8090";
+  //url for heroku
+  private url="https://waterbnbserver.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
@@ -49,10 +51,10 @@ export class RestService {
   }
 
   public updateListing(listing){
-    return this.http.put(this.url+"/listing", listing);
+    return this.http.put(this.url+"/listing/", listing);
   }
 
-  // failing at the moment
+  // failing at the moment. maybe make it frontend only?
   public searchListings(string){
     return this.http.get<Listing[]>(this.url+"/listing/?name="+string);
   }

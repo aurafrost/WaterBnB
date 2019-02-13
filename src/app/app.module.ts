@@ -13,6 +13,7 @@ import { HostComponent } from './host/host.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from "@angular/forms";
     ReviewComponent,
     SigninComponent,
     HostComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

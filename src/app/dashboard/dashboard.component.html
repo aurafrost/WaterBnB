@@ -10,11 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let listing of listings">
+      <tr *ngFor="let listing of listings|async">
         <td>{{listing.address}}</td>
-        <td>{{listing.size}}</td>
+        <td>{{listing.poolSize}}</td>
         <td>{{listing.cost}}</td>
-        <td><a routerLink="/pools/{{listing.id}}"><button class="btn btn-outline-primary">{{listing.details}} - See more</button></a></td>
+        <td><a routerLink="/edit/{{listing.listingId}}"><button class="btn btn-outline-primary">Edit</button></a></td>
       </tr>
     </tbody>
   </table>

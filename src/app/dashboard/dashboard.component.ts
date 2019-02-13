@@ -27,9 +27,10 @@ export class DashboardComponent implements OnInit {
     if(this.user==null){
       this.router.navigate(['/']);
     }
-    this.service.getListingsByUser(this.user).subscribe(data=>{
-      this.listings=data;
-    })
+    this.listings=this.service.getListingsByUser(this.user);
+    // this.service.getListingsByUser(this.user).subscribe(data=>{
+    //   this.listings=data;
+    // });
   }
 
   addListing(address,description,cost,poolSize){
